@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.cardapio.demo.repositories.ResumeRepositorie;
@@ -31,6 +32,10 @@ public class ResumeService {
     public ResponseEntity create(@RequestBody Resume resume){
     resumeRepositorie.save(resume);
     return ResponseEntity.status(HttpStatus.CREATED).body(resume);
+    }
+
+    public void delete(@PathVariable Resume id){
+        resumeRepositorie.deleteById(id.getId());
     }
 
 }
