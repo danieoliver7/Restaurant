@@ -2,3 +2,7 @@ INSERT INTO resumes(name_prato, descr, price) VALUES ('churrasco', 'carne,lingui
 INSERT INTO resumes(name_prato, descr, price) VALUES ('salada', 'mato',15.00);
 INSERT INTO resumes(name_prato, descr, price) VALUES ('macarrão', 'macarrão a bonhesa',40.00);
 INSERT INTO resumes(name_prato, descr, price) VALUES ('sopa de feijão', 'feijão',120.00);
+
+
+INSERT INTO tb_client(name_client) VALUES ('Daniel');
+INSERT INTO tb_client(name_client, password) VALUES ('Daniel', '122344');
