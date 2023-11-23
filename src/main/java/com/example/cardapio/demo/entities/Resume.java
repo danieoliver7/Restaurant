@@ -1,7 +1,11 @@
 package com.example.cardapio.demo.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,7 +21,9 @@ public class Resume {
 
     @Column(name = "name_prato")
     private String namePrato;
-    private String descr;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> descr;
     private Double price;
 
 
@@ -27,7 +33,7 @@ public class Resume {
 
 
 
-    public Resume(Long id, String namePrato, String descr, Double price) {
+    public Resume(Long id, String namePrato, List<String> descr, Double price) {
         this.id = id;
         this.namePrato = namePrato;
         this.descr = descr;
@@ -51,11 +57,11 @@ public class Resume {
         this.namePrato = namePrato;
     }
 
-    public String getDescr() {
+    public List<String> getDescr() {
         return this.descr;
     }
 
-    public void setDescr(String descr) {
+    public void setDescr(List<String> descr) {
         this.descr = descr;
     }
 

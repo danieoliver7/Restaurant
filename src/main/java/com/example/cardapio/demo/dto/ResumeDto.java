@@ -1,5 +1,7 @@
 package com.example.cardapio.demo.dto;
 
+import java.util.List;
+
 import com.example.cardapio.demo.entities.Resume;
 
 public class ResumeDto {
@@ -7,7 +9,7 @@ public class ResumeDto {
     
     private Long id;
     private String namePrato;
-    private String descr;
+    private List<String> descr;
     private double price;
 
 
@@ -39,11 +41,11 @@ public class ResumeDto {
         this.namePrato = namePrato;
     }
 
-    public String getDescr() {
+    public List<String> getDescr() {
         return this.descr;
     }
 
-    public void setDescr(String descr) {
+    public void setDescr(List<String> descr) {
         this.descr = descr;
     }
 
