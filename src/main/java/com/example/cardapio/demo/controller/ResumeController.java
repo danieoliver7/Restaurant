@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.cardapio.demo.dto.ClientDto;
+
 import com.example.cardapio.demo.dto.ResumeDto;
 import com.example.cardapio.demo.entities.Resume;
 
-import com.example.cardapio.demo.service.ClientService;
+
 import com.example.cardapio.demo.service.ResumeService;
 
 @RestController
@@ -28,14 +28,20 @@ public class ResumeController {
     @Autowired
     private ResumeService resumeService;
 
-    @Autowired
-    private ClientService clientService;
+   
    
 
 
     @GetMapping
     public List<ResumeDto> findAll(){
         List<ResumeDto> res = resumeService.findall();
+        return res;
+    }
+
+
+    @GetMapping(path = "/{id}")
+    public ResumeDto findById(@PathVariable Long id){
+        ResumeDto res = resumeService.findById(id);
         return res;
     }
 

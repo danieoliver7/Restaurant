@@ -1,6 +1,7 @@
 package com.example.cardapio.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,16 @@ public class ResumeService {
         List<Resume> result = resumeRepositorie.findAll();
         List<ResumeDto> dto = result.stream().map(x -> new ResumeDto(x)).toList();
         return dto;
+    }
+
+    @Transactional(readOnly = true)
+    public ResumeDto findById(@PathVariable Long id){
+
+    Resume res = resumeRepositorie.findById(id).get();
+    ResumeDto test = new ResumeDto(res);
+
+    return test;
+   
     }
 
     public ResponseEntity create(@RequestBody Resume resume){
